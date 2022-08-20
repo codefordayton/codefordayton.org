@@ -1,0 +1,4 @@
+- name: LotLinker and GoGetProperties
+  url: https://github.com/codefordayton/daytonreap
+- name: Flo's Whistle
+  url: https://github.com/codefordayton/floswhistle

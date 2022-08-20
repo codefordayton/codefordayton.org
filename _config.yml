@@ -1,0 +1,40 @@
+---
+title: Code For Dayton
+timezone: UTC
+markdown: kramdown
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+  rooms:
+    title: Rooms
+    output: true
+email: team@codefordayton.org
+description:
+  'Part of the Code for America Brigade network, we are a volunteer group
+  of developers, designers, data geeks, and citizen activists who use creative technology
+  to solve civic and social problems.'
+baseurl: ''
+url: https://www.codefordayton.org
+author: Dave Best
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: post
+# NOTE:If you change the below donate_url you should also update the URL here: https://github.com/codefordayton/.github/FUNDING.yml
+donate_url: https://codeforamerica.org/donate-to-a-brigade?utm_campaign=Code%20for%20Dayton&utm_source=codefordayton.org
+twitter_url: https://twitter.com/codefordayton
+github_url: https://github.com/codefordayton
+meetup_url: https://www.meetup.com/code-for-dayton/
+privacy_policy_url: https://www.codefordayton.org/privacy-policy/
+slack_url: https://communityinviter.com/apps/opendayton/open-dayton
+facebook_url: https://www.facebook.com/Code-For-Dayton-1501498193512256
+
+slack_team_id: T0556DP9Y
+plugins:
+  - jekyll-redirect-from
+  - jekyll-feed

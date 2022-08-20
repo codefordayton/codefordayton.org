@@ -1,0 +1,59 @@
+name: render-newsletter
+description: Render the newsletter
+inputs:
+  text_path:
+    description: 'Path to Markdown file containing the post body'
+    required: false
+  posts_dir:
+    description: 'Path to directory containing posts'
+    required: false
+
+  after_date:
+    description: 'Only render posts that have a send date >= this ISO 8601-formatted date'
+    required: false
+  send_at:
+    description: 'Time of day to send the newsletter, formatted as HH:MM+ZZZZ'
+    required: false
+
+  out_path:
+    description: 'Path where the output should be written'
+    required: false
+
+  sendgrid_api_key:
+    description: 'Sendgrid API Key'
+    required: false
+  sendgrid_list_id:
+    description: 'SendGrid contacts list to send the newsletter to'
+    required: false
+  sendgrid_sender_id:
+    description: 'Verified sender id'
+    required: false
+  suppression_group_id:
+    description: ''
+    required: false
+  template_path:
+    description: ''
+    required: false
+  site_yaml:
+    description: 'Path to YAML file with the properties for "site" context variable'
+    required: false
+
+  context:
+    description: 'JSON-encoded context to include when rendering newsletter'
+    required: false
+  subject_format:
+    description: 'Format of the subject, where %s will be replaced by the "title" from the front matter of the post'
+    require: false
+  slack_url:
+    description: 'Post link to SendGrid single send'
+    require: false
+
+outputs:
+  send_date:
+    description: 'ISO 8601-formatted date string'
+  single_send_url:
+    description: 'URL of the new SendGrid single send'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
