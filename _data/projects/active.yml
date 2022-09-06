@@ -2,24 +2,26 @@
   elevatorPitch: >
     A free platform for local artists to sell their artwork. Began early in the pandemic.
   repository: None
+  url: https://essentialartistsdayton.org/
   partner:
     - name: The Collaboratory
       url: https://www.daytoncollaboratory.org
   lead: Dave Best
   technologies: Wordpress, WooCommerce
-  slackChannel: codefordayton
 - name: Non Profit Enablement
   elevatorPitch: >
     Help us get more local non-profits listed on the Dayton Serves site.
+  repository: https://github.com/codefordayton/npverify
+  url: https://npverify.codefordayton.org/
   partner:
     - name: Dayton Serves
       url: https://daytonserves.org/
   lead: Dave Best
-  technologies: TBD
-  slackChannel: codefordayton
+  technologies: Django
 - name: Monty Lots
   elevatorPitch: >
     A spiritual successor to the LotLinker site data.
+  url: https://www.montylots.com/
   repository: https://github.com/codefordayton/montylots
   lead: Dave Best
   technologies: Python, Javascript, Leaflet
