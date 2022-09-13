@@ -26,3 +26,10 @@
   lead: Dave Best
   technologies: Python, Javascript, Leaflet
   slackChannel: codefordayton
+- name: Friends of the Florence Nightingale Museum
+  elevatorPitch: >
+    A Jekyll site for a new nonprofit.
+  url: https://www.friendsoffnm.org/
+  repository: https://github.com/codefordayton/friendsoffnm.org
+  lead: Janet Michaelis
+  technologies: Jekyll, Github Pages
