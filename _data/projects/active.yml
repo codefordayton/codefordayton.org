@@ -1,7 +1,7 @@
 - name: Essential Artists
   elevatorPitch: >
     A free platform for local artists to sell their artwork. Began early in the pandemic.
-  repository: None
+  repository: https://github.com/codefordayton/essentialartists
   url: https://essentialartistsdayton.org/
   partner:
     - name: The Collaboratory
@@ -17,7 +17,7 @@
     - name: Dayton Serves
       url: https://daytonserves.org/
   lead: Dave Best
-  technologies: Django
+  technologies: Django, Python
 - name: Monty Lots
   elevatorPitch: >
     A spiritual successor to the LotLinker site data.
