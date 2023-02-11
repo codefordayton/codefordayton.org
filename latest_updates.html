@@ -14,4 +14,17 @@ type: inNavBar
   <div class="newsletter">
     {{ site.posts[0].content }}
   </div>
+
+  <br />
+
+  <h2>Other Posts</h2>
+  <ul>
+    {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <br />
+      {{ post.date | date_to_string: "ordinal", "US" }}
+    </li>
+    {% endfor %}
+  </ul>
 </section>
