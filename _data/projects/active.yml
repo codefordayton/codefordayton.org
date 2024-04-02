@@ -1,23 +1,32 @@
 - name: Essential Artists
   elevatorPitch: >
-    A free platform for local artists to sell their artwork. Began early in the pandemic.
-  repository: https://github.com/codefordayton/essentialartists
+    A free platform for local artists to advertise their artwork. Began early in the pandemic, recently expanded to other types of art.
   url: https://essentialartistsdayton.org/
   partner:
     - name: The Collaboratory
       url: https://www.daytoncollaboratory.org
   lead: Dave Best
-  technologies: Wordpress, WooCommerce
-- name: Non Profit Enablement
+  technologies: Wix
+- name: Dayton Home Repair Network Screener
   elevatorPitch: >
-    Help us get more local non-profits listed on the Dayton Serves site.
-  repository: https://github.com/codefordayton/npverify
-  url: https://npverify.codefordayton.org/
+    Make it easy for those in need to get support for vital home weatherization and repairs.
+  repository: https://github.com/codefordayton/dhrn-screener
+  url: https://dhrn.codefordayton.org/
   partner:
-    - name: Dayton Serves
-      url: https://daytonserves.org/
+    - name: Dayton Energy Collaborative
+      url: https://daytonenergycollaborative.org/
   lead: Dave Best
-  technologies: Django, Python
+  technologies: React, Survey.JS
+- name: Logan County Disaster Resources
+  elevatorPitch: >
+    Provide support for the Emergency Management Agency's phone support with easy to access common resources.
+  repository: https://github.com/codefordayton/logancounty
+  url: https://logan.codefordayton.org/
+  partner:
+    - name: Logan County Emergency Management Agency
+      url: https://www.co.logan.oh.us/201/Emergency-Management-Agency
+  lead: Dave Best
+  technologies: React, Survey.JS
 - name: Monty Lots
   elevatorPitch: >
     A spiritual successor to the LotLinker site data.
