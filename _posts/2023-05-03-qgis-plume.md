@@ -30,7 +30,7 @@ Here's the process that we followed:
 
 ![QGIS Plume Boundary](/img/posts/qgis.png)
 
-I was really impressed with how easy it was to do this in QGIS. I hadn't used the tool before; it always seemed daunting, but this seemed like a perfect used case for it. I'm looking forward to exploring it more in the future and adding it to the brigade toolbox.
+I was really impressed with how easy it was to do this in QGIS. I hadn't used the tool before; it always seemed daunting, but this seemed like a perfect used case for it. I'm looking forward to exploring it more in the future and adding it to the group's toolbox.
 
 Dave
 
