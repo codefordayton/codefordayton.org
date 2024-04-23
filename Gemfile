@@ -1,4 +1,9 @@
 source 'https://rubygems.org'
 
-gem "github-pages", "~> 205", group: :jekyll_plugins
+gem "jekyll"
+gem "github-pages" 
 gem "jekyll-redirect-from"
+
+gem "webrick"
+
+gem "rexml", "~> 3.2"
