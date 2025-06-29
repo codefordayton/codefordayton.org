@@ -6,7 +6,7 @@ layout: page
 {: .t-section-headline }
 # Privacy Policy
 
-CodeforDayton.org is a nonprofit website run by volunteers from Code for Dayton, which is fiscally sponsored by Code for America Labs, Inc. This Privacy Policy describes how we collect, use, and protect your personal information on our websites, including the Code for Dayton website. By submitting your personal information on our websites, you agree to the terms in this Privacy Policy. If you do not agree with these terms, please do not use our websites.
+CodeforDayton.org is a nonprofit website run by volunteers from Code for Dayton, a local civic hacking group fiscally sponsored by Hack Club Bank. This Privacy Policy describes how we collect, use, and protect your personal information on our websites, including the Code for Dayton website. By submitting your personal information on our websites, you agree to the terms in this Privacy Policy. If you do not agree with these terms, please do not use our websites.
 
 ### Overview
 We collect information from you when you visit and take actions on our website. We use this information to provide the services you’ve requested.
