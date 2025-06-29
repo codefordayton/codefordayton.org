@@ -2,7 +2,7 @@
 
 This is a pretty standard [Jekyll](https://jekyllrb.com/) website at http://www.codefordayton.org/; there are a number of datasets in `_data` that build various lists displayed on the site. This site was **heavily** based on the website for [Code For Boston](https://www.codeforboston.org/).
 
-Please be sure to read our [Code of Conduct](http://www.codefordayton.org/code-of-conduct/). CFD is a [Code for America Brigade](http://www.codeforamerica.org/brigade/about).
+Please be sure to read our [Code of Conduct](http://www.codefordayton.org/code-of-conduct/). CFD is a local civic hacking group aligned with the [Alliance of Civic Technologists (ACT)](https://www.civictechnologists.org/).
 
 ## I want to build the website locally. How do I do that?
 
