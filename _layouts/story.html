@@ -1,0 +1,222 @@
+---
+layout: default
+---
+
+<div class="container">
+  <article class="story">
+    <header class="story-header">
+      <h1 class="t-section-headline">{{ page.title }}</h1>
+      
+      {% if page.summary %}
+      <p class="story-summary">{{ page.summary }}</p>
+      {% endif %}
+      
+      <div class="story-meta">
+        <div class="story-info">
+          <span class="story-date">{{ page.date | date_to_long_string: "ordinal", "US" }}</span>
+          {% if page.skill_level %}
+          <span class="skill-level skill-{{ page.skill_level }}">{{ page.skill_level | capitalize }}</span>
+          {% endif %}
+        </div>
+        
+        {% if page.tools %}
+        <div class="story-tools">
+          <strong>Tools used:</strong>
+          {% for tool in page.tools %}
+          <span class="tool-tag">{{ tool }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        
+        {% if page.problem_type %}
+        <div class="story-problem-types">
+          <strong>Problem types:</strong>
+          {% for type in page.problem_type %}
+          <span class="problem-type-tag">{{ type }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="story-content">
+      {{ content }}
+    </div>
+
+    <footer class="story-footer">
+      {% if page.project_link or page.contact or page.resources %}
+      <div class="story-resources">
+        <h3>Resources & Contact</h3>
+        
+        {% if page.project_link %}
+        <p><strong>Project Repository:</strong> <a href="{{ page.project_link }}" target="_blank">{{ page.project_link }}</a></p>
+        {% endif %}
+        
+        {% if page.contact %}
+        <p><strong>Contact:</strong> <a href="mailto:{{ page.contact }}">{{ page.contact }}</a></p>
+        {% endif %}
+        
+        {% if page.resources %}
+        <div class="additional-resources">
+          <strong>Additional Resources:</strong>
+          <ul>
+          {% for resource in page.resources %}
+            <li><a href="{{ resource.url }}" target="_blank">{{ resource.title }}</a></li>
+          {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <div class="story-navigation">
+        <a href="/toolbox/" class="btn-secondary">← Back to Toolbox</a>
+        
+        <!-- Related stories section - to be enhanced in later phases -->
+        <div class="related-stories">
+          <h4>More Stories</h4>
+          <ul>
+          {% for story in site.stories limit:3 %}
+            {% unless story.url == page.url %}
+            <li><a href="{{ story.url }}">{{ story.title }}</a></li>
+            {% endunless %}
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </article>
+</div>
+
+<style>
+.story {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.story-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+}
+
+.story-summary {
+  font-size: 1.2em;
+  color: #666;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.story-meta {
+  margin-top: 1rem;
+}
+
+.story-info {
+  margin-bottom: 0.5rem;
+}
+
+.story-date {
+  color: #888;
+  margin-right: 1rem;
+}
+
+.skill-level {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.skill-beginner { background-color: #d4edda; color: #155724; }
+.skill-intermediate { background-color: #fff3cd; color: #856404; }
+.skill-advanced { background-color: #f8d7da; color: #721c24; }
+
+.tool-tag, .problem-type-tag {
+  display: inline-block;
+  background-color: #f0f0f0;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.tool-tag {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.problem-type-tag {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.story-content {
+  line-height: 1.7;
+  margin: 2rem 0;
+}
+
+.story-content h2 {
+  color: #333;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.5em;
+}
+
+.story-content h3 {
+  color: #555;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.story-footer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.story-resources {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.story-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.related-stories h4 {
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.related-stories ul {
+  list-style: none;
+  padding: 0;
+}
+
+.related-stories li {
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .story {
+    padding: 1rem 0.5rem;
+  }
+  
+  .story-navigation {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .story-meta > div {
+    margin-bottom: 0.75rem;
+  }
+}
+</style>

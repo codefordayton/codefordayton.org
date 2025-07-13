@@ -12,6 +12,10 @@ collections:
   rooms:
     title: Rooms
     output: true
+  stories:
+    title: Stories
+    output: true
+    permalink: /:collection/:name/
 email: team@codefordayton.org
 description:
   'Part of the Alliance of Civic Technologists (ACT) network, we are a volunteer group
@@ -25,6 +29,10 @@ defaults:
       type: posts
     values:
       layout: post
+  - scope:
+      type: stories
+    values:
+      layout: story
 # NOTE:If you change the below donate_url you should also update the URL here: https://github.com/codefordayton/.github/FUNDING.yml
 donate_url: https://hcb.hackclub.com/donations/start/code-for-dayton
 twitter_url: https://twitter.com/codefordayton
