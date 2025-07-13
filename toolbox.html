@@ -3,7 +3,38 @@ title: Toolbox
 permalink: "/toolbox/"
 layout: page
 type: inNavBar
+description: "Real stories of civic tech problem-solving. Learn tools like Python, QGIS, and web scraping through actual community impact projects from Code for Dayton."
 ---
+
+<!-- Additional SEO for toolbox page -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Civic Tech Stories & Tools",
+  "description": "Learn civic technology tools through real community impact stories from Code for Dayton",
+  "url": "{{ site.url }}/toolbox/",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+    {% for story in site.stories %}
+      {
+        "@type": "Article",
+        "position": {{ forloop.index }},
+        "name": "{{ story.title | escape }}",
+        "description": "{{ story.summary | escape }}",
+        "url": "{{ site.url }}{{ story.url }}"
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+    ]
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}"
+  }
+}
+</script>
 
 <h1 class="t-section-headline">Civic Tech Stories & Tools</h1>
 
@@ -16,6 +47,34 @@ type: inNavBar
 
   <section class="featured-stories">
     <h2>Featured Stories</h2>
+    
+    <div class="story-filters">
+      <h3>Filter by:</h3>
+      <div class="filter-group">
+        <label>Tools:</label>
+        <button class="filter-btn" data-filter="all" data-type="tool">All</button>
+        <button class="filter-btn" data-filter="python" data-type="tool">Python</button>
+        <button class="filter-btn" data-filter="qgis" data-type="tool">QGIS</button>
+        <button class="filter-btn" data-filter="jupyter" data-type="tool">Jupyter</button>
+        <button class="filter-btn" data-filter="apis" data-type="tool">APIs</button>
+      </div>
+      <div class="filter-group">
+        <label>Problem Type:</label>
+        <button class="filter-btn" data-filter="all" data-type="problem">All</button>
+        <button class="filter-btn" data-filter="environmental" data-type="problem">Environmental</button>
+        <button class="filter-btn" data-filter="healthcare" data-type="problem">Healthcare</button>
+        <button class="filter-btn" data-filter="transportation" data-type="problem">Transportation</button>
+        <button class="filter-btn" data-filter="data-analysis" data-type="problem">Data Analysis</button>
+      </div>
+      <div class="filter-group">
+        <label>Skill Level:</label>
+        <button class="filter-btn" data-filter="all" data-type="skill">All</button>
+        <button class="filter-btn" data-filter="beginner" data-type="skill">Beginner</button>
+        <button class="filter-btn" data-filter="intermediate" data-type="skill">Intermediate</button>
+        <button class="filter-btn" data-filter="advanced" data-type="skill">Advanced</button>
+      </div>
+    </div>
+    
     <div class="story-grid">
       {% for story in site.stories %}
       <article class="story-card">
@@ -81,6 +140,9 @@ type: inNavBar
           <p>Versatile programming language excellent for data analysis, web scraping, and automation.</p>
           <div class="tool-links">
             <a href="https://python.org/" class="btn-secondary">Get Started</a>
+            <div class="used-in">
+              Used in: <a href="/stories/medical-debt-analysis/">Medical Debt Analysis</a>, <a href="/stories/transit-data-scraping/">Transit Data Collection</a>
+            </div>
           </div>
         </div>
         
@@ -89,6 +151,31 @@ type: inNavBar
           <p>Interactive computing environment perfect for data exploration and sharing reproducible research.</p>
           <div class="tool-links">
             <a href="https://jupyter.org/" class="btn-secondary">Try Jupyter</a>
+            <div class="used-in">
+              Used in: <a href="/stories/medical-debt-analysis/">Medical Debt Analysis</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tool">
+          <h4>pandas</h4>
+          <p>Python library for data manipulation and analysis, essential for working with structured data.</p>
+          <div class="tool-links">
+            <a href="https://pandas.pydata.org/" class="btn-secondary">Documentation</a>
+            <div class="used-in">
+              Used in: <a href="/stories/medical-debt-analysis/">Medical Debt Analysis</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tool">
+          <h4>Beautiful Soup</h4>
+          <p>Python library for parsing HTML and XML, perfect for web scraping civic data sources.</p>
+          <div class="tool-links">
+            <a href="https://www.crummy.com/software/BeautifulSoup/" class="btn-secondary">Documentation</a>
+            <div class="used-in">
+              Used in: <a href="/stories/transit-data-scraping/">Transit Data Collection</a>
+            </div>
           </div>
         </div>
       </div>
@@ -147,6 +234,20 @@ type: inNavBar
           <p>Modern platform for deploying applications with minimal configuration. Great for prototyping civic tech solutions.</p>
           <div class="tool-links">
             <a href="https://railway.app/" class="btn-secondary">Deploy Now</a>
+            <div class="used-in">
+              Used in: <a href="/stories/transit-data-scraping/">Transit Data Collection</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tool">
+          <h4>GitHub Actions</h4>
+          <p>Automation platform for building continuous integration and deployment workflows directly in GitHub.</p>
+          <div class="tool-links">
+            <a href="https://github.com/features/actions" class="btn-secondary">Learn More</a>
+            <div class="used-in">
+              Used in: <a href="/stories/transit-data-scraping/">Transit Data Collection</a>
+            </div>
           </div>
         </div>
       </div>
@@ -340,6 +441,65 @@ type: inNavBar
   line-height: 1.5;
 }
 
+/* Story filtering */
+.story-filters {
+  margin: 1.5rem 0 2rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.story-filters h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.1em;
+}
+
+.filter-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-weight: bold;
+  color: #555;
+  margin-right: 0.5rem;
+  min-width: 100px;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.filter-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.story-card {
+  transition: opacity 0.3s ease;
+}
+
+.story-card.hidden {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .story-grid {
     grid-template-columns: 1fr;
@@ -353,5 +513,97 @@ type: inNavBar
     flex-direction: column;
     align-items: flex-start;
   }
+  
+  .filter-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filter-group label {
+    margin-bottom: 0.25rem;
+    min-width: auto;
+  }
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const storyCards = document.querySelectorAll('.story-card');
+  
+  // Set initial active states
+  filterButtons.forEach(btn => {
+    if (btn.dataset.filter === 'all') {
+      btn.classList.add('active');
+    }
+  });
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const filter = this.dataset.filter;
+      const type = this.dataset.type;
+      
+      // Update active state for this filter type
+      filterButtons.forEach(btn => {
+        if (btn.dataset.type === type) {
+          btn.classList.remove('active');
+        }
+      });
+      this.classList.add('active');
+      
+      // Apply filters
+      filterStories();
+    });
+  });
+  
+  function filterStories() {
+    const activeFilters = {
+      tool: document.querySelector('.filter-btn[data-type="tool"].active').dataset.filter,
+      problem: document.querySelector('.filter-btn[data-type="problem"].active').dataset.filter,
+      skill: document.querySelector('.filter-btn[data-type="skill"].active').dataset.filter
+    };
+    
+    storyCards.forEach(card => {
+      let show = true;
+      
+      // Get story data from the card
+      const toolTags = Array.from(card.querySelectorAll('.tool-tag')).map(tag => tag.textContent.toLowerCase());
+      const skillLevel = card.querySelector('.skill-level') ? 
+        card.querySelector('.skill-level').textContent.toLowerCase() : '';
+      
+      // Get problem types from story URL (simplified approach)
+      const storyUrl = card.querySelector('h3 a').href;
+      let problemTypes = [];
+      if (storyUrl.includes('qgis-contamination')) problemTypes = ['environmental'];
+      if (storyUrl.includes('medical-debt')) problemTypes = ['healthcare', 'data-analysis'];
+      if (storyUrl.includes('transit-data')) problemTypes = ['transportation', 'data-analysis'];
+      
+      // Apply filters
+      if (activeFilters.tool !== 'all') {
+        if (!toolTags.some(tool => tool.includes(activeFilters.tool))) {
+          show = false;
+        }
+      }
+      
+      if (activeFilters.problem !== 'all') {
+        if (!problemTypes.includes(activeFilters.problem)) {
+          show = false;
+        }
+      }
+      
+      if (activeFilters.skill !== 'all') {
+        if (!skillLevel.includes(activeFilters.skill)) {
+          show = false;
+        }
+      }
+      
+      // Show/hide card
+      if (show) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+});
+</script>
