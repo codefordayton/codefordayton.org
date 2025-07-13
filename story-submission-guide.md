@@ -74,7 +74,6 @@ title: "Your Project Title"
 summary: "One-sentence description of the problem solved and impact achieved"
 tools: [tool1, tool2, tool3]
 problem_type: [category1, category2]
-skill_level: beginner|intermediate|advanced
 date: YYYY-MM-DD
 project_link: "https://github.com/your-repo"
 contact: "your-email@example.com"
@@ -117,11 +116,6 @@ Choose relevant problem categories:
 - **Community Outreach**: Engagement, education, organizing
 - **Policy Advocacy**: Research support, evidence gathering, campaign tools
 
-### Skill Levels
-Be honest about technical complexity:
-- **Beginner**: Minimal technical background required, mostly using existing tools
-- **Intermediate**: Some programming or technical skills needed, following tutorials
-- **Advanced**: Significant technical expertise required, custom development
 
 ## Content Guidelines
 

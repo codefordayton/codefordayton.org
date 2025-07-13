@@ -70,9 +70,6 @@ layout: default
       <div class="story-meta">
         <div class="story-info">
           <span class="story-date">{{ page.date | date_to_long_string: "ordinal", "US" }}</span>
-          {% if page.skill_level %}
-          <span class="skill-level skill-{{ page.skill_level }}">{{ page.skill_level | capitalize }}</span>
-          {% endif %}
         </div>
         
         {% if page.tools %}
@@ -206,16 +203,6 @@ layout: default
   margin-right: 1rem;
 }
 
-.skill-level {
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.9em;
-  font-weight: bold;
-}
-
-.skill-beginner { background-color: #d4edda; color: #155724; }
-.skill-intermediate { background-color: #fff3cd; color: #856404; }
-.skill-advanced { background-color: #f8d7da; color: #721c24; }
 
 .tool-tag, .problem-type-tag {
   display: inline-block;

@@ -66,13 +66,6 @@ description: "Real stories of civic tech problem-solving. Learn tools like Pytho
         <button class="filter-btn" data-filter="transportation" data-type="problem">Transportation</button>
         <button class="filter-btn" data-filter="data-analysis" data-type="problem">Data Analysis</button>
       </div>
-      <div class="filter-group">
-        <label>Skill Level:</label>
-        <button class="filter-btn" data-filter="all" data-type="skill">All</button>
-        <button class="filter-btn" data-filter="beginner" data-type="skill">Beginner</button>
-        <button class="filter-btn" data-filter="intermediate" data-type="skill">Intermediate</button>
-        <button class="filter-btn" data-filter="advanced" data-type="skill">Advanced</button>
-      </div>
     </div>
     
     <div class="story-grid">
@@ -82,10 +75,6 @@ description: "Real stories of civic tech problem-solving. Learn tools like Pytho
         <p class="story-summary">{{ story.summary }}</p>
         
         <div class="story-meta">
-          {% if story.skill_level %}
-          <span class="skill-level skill-{{ story.skill_level }}">{{ story.skill_level | capitalize }}</span>
-          {% endif %}
-          
           {% if story.tools %}
           <div class="story-tools">
             {% for tool in story.tools limit:3 %}
@@ -319,18 +308,6 @@ description: "Real stories of civic tech problem-solving. Learn tools like Pytho
   margin-bottom: 1rem;
 }
 
-.skill-level {
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8em;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  display: inline-block;
-}
-
-.skill-beginner { background-color: #d4edda; color: #155724; }
-.skill-intermediate { background-color: #fff3cd; color: #856404; }
-.skill-advanced { background-color: #f8d7da; color: #721c24; }
 
 .story-tools {
   margin-top: 0.5rem;
@@ -559,8 +536,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function filterStories() {
     const activeFilters = {
       tool: document.querySelector('.filter-btn[data-type="tool"].active').dataset.filter,
-      problem: document.querySelector('.filter-btn[data-type="problem"].active').dataset.filter,
-      skill: document.querySelector('.filter-btn[data-type="skill"].active').dataset.filter
+      problem: document.querySelector('.filter-btn[data-type="problem"].active').dataset.filter
     };
     
     storyCards.forEach(card => {
@@ -568,8 +544,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Get story data from the card
       const toolTags = Array.from(card.querySelectorAll('.tool-tag')).map(tag => tag.textContent.toLowerCase());
-      const skillLevel = card.querySelector('.skill-level') ? 
-        card.querySelector('.skill-level').textContent.toLowerCase() : '';
       
       // Get problem types from story URL (simplified approach)
       const storyUrl = card.querySelector('h3 a').href;
@@ -587,12 +561,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (activeFilters.problem !== 'all') {
         if (!problemTypes.includes(activeFilters.problem)) {
-          show = false;
-        }
-      }
-      
-      if (activeFilters.skill !== 'all') {
-        if (!skillLevel.includes(activeFilters.skill)) {
           show = false;
         }
       }
