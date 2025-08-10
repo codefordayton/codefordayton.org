@@ -46,9 +46,14 @@ description: "Real stories of civic tech problem-solving. Learn tools like Pytho
   </section>
 
   <section class="featured-stories">
-    <h2>Featured Stories</h2>
+    <div class="stories-header">
+      <h2>Featured Stories</h2>
+      <button id="filter-toggle" class="filter-toggle-btn" style="display: none;">
+        <i class="fas fa-filter"></i> <span class="toggle-text">Show Filters</span>
+      </button>
+    </div>
     
-    <div class="story-filters">
+    <div class="story-filters" id="story-filters">
       <h3>Filter by:</h3>
       <div class="filter-group">
         <label>Tools:</label>
@@ -398,6 +403,37 @@ description: "Real stories of civic tech problem-solving. Learn tools like Pytho
   line-height: 1.5;
 }
 
+/* Stories header */
+.stories-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filter-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  color: #495057;
+  transition: all 0.2s ease;
+}
+
+.filter-toggle-btn:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.filter-toggle-btn i {
+  font-size: 0.8em;
+}
+
 /* Story filtering */
 .story-filters {
   margin: 1.5rem 0 2rem 0;
@@ -405,6 +441,11 @@ description: "Real stories of civic tech problem-solving. Learn tools like Pytho
   background: #f8f9fa;
   border-radius: 8px;
   border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.story-filters.hidden {
+  display: none;
 }
 
 .story-filters h3 {
@@ -480,6 +521,16 @@ description: "Real stories of civic tech problem-solving. Learn tools like Pytho
     margin-bottom: 0.25rem;
     min-width: auto;
   }
+  
+  .stories-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .filter-toggle-btn {
+    align-self: flex-end;
+  }
 }
 </style>
 
@@ -487,6 +538,55 @@ description: "Real stories of civic tech problem-solving. Learn tools like Pytho
 document.addEventListener('DOMContentLoaded', function() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const storyCards = document.querySelectorAll('.story-card');
+  const storyFilters = document.getElementById('story-filters');
+  const filterToggle = document.getElementById('filter-toggle');
+  const toggleText = filterToggle.querySelector('.toggle-text');
+  
+  // Configuration: minimum stories to show filters automatically
+  const MIN_STORIES_FOR_FILTERS = 4;
+  
+  // Check if we should show filters
+  const shouldShowFilters = storyCards.length >= MIN_STORIES_FOR_FILTERS;
+  
+  if (shouldShowFilters) {
+    // Show filters automatically
+    storyFilters.style.display = 'block';
+    filterToggle.style.display = 'none';
+  } else {
+    // Hide filters initially and show toggle button
+    storyFilters.style.display = 'none';
+    filterToggle.style.display = 'inline-flex';
+  }
+  
+  // Toggle button functionality
+  let filtersVisible = shouldShowFilters;
+  filterToggle.addEventListener('click', function() {
+    filtersVisible = !filtersVisible;
+    
+    if (filtersVisible) {
+      storyFilters.style.display = 'block';
+      toggleText.textContent = 'Hide Filters';
+    } else {
+      storyFilters.style.display = 'none';
+      toggleText.textContent = 'Show Filters';
+      // Reset all filters to "All" when hiding
+      resetFilters();
+    }
+  });
+  
+  // Reset filters to show all stories
+  function resetFilters() {
+    filterButtons.forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.dataset.filter === 'all') {
+        btn.classList.add('active');
+      }
+    });
+    
+    storyCards.forEach(card => {
+      card.classList.remove('hidden');
+    });
+  }
   
   // Set initial active states
   filterButtons.forEach(btn => {
