@@ -11,7 +11,7 @@ resources:
   - title: "QGIS Official Website"
     url: "https://qgis.org/"
   - title: "Montgomery County Parcel Data"
-    url: "http://www.mcauditor.org/downloads/gis_downloads.cfm"
+    url: "https://www.mcohio.org/631/GIS-Downloads"
   - title: "EPA Contamination Map"
     url: "https://semspub.epa.gov/work/05/968770.pdf"
   - title: "Original Blog Post"

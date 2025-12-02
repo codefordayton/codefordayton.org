@@ -15,7 +15,7 @@ Turns out, this is fairly straightforward to do in QGIS. We’re going to walkth
 What you need if you want to follow along:
 
 - [QGIS](https://www.qgis.org/en/site/) (download available for all platforms)
-- [Montgomery County Auditor’s Parcel Shapefile](http://www.mcauditor.org/downloads/Shape_files/SHAPEFILES_PARCELLINES_ROW_OLDLOT.zip) (available from [here](http://www.mcauditor.org/downloads/gis_downloads.cfm))
+- [Montgomery County Auditor’s Parcel Shapefile](https://go.mcohio.org/embed/auditor/downloads/Shape_files/SHAPEFILE_PARCELLINES_ROW_OLDLOT.zip) (available from [here](https://www.mcohio.org/631/GIS-Downloads))
 
 
 Here's the process that we followed:
